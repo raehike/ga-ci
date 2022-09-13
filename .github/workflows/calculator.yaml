@@ -1,13 +1,21 @@
 name: calculator-test
 
 on:
-  workflow_dispatch: {}
   push:
+    paths:
+    - 'calculator/**'
     branches:
     - main
+
   pull_request:
+    paths:
+    - 'calculator/**'
     types:
     - synchronize
+    - opened
+    - reopened
+
+  workflow_dispatch: {}
 
 jobs:
   calculator-test:
