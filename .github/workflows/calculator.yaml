@@ -1,0 +1,29 @@
+name: calculator-test
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+    - main
+  pull_request:
+    types:
+    - synchronize
+
+jobs:
+  calculator-test:
+    name: calculator-test
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: calculator
+
+    steps:
+
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    - run: pip install pytest
+
+    - run: pytest
