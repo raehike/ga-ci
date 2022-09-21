@@ -22,3 +22,7 @@ jobs:
 
     # --check fails if black would reformat, succeeds if no changes
     - run: black --check binary-search-typed.py
+
+    - run: pip install mypy
+
+    - run: mypy binary-search-typed.py
