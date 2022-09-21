@@ -1,18 +1,21 @@
-name: py-black
+name: Binary search - Formatting (black)
 
 on:
   workflow_dispatch: {}
 
 jobs:
-  py-mypy:
-    name: py-mypy
+  py-black:
+    name: Binary search - Formatting (black)
     runs-on: ubuntu-latest
     steps:
 
     - uses: actions/checkout@v3
+
     - uses: actions/setup-python@v4
       with:
         python-version: '3.10'
+
     - run: pip install black
 
+    # --check fails if black would reformat, succeeds if no changes
     - run: black --check binary-search-typed.py

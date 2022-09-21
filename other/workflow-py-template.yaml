@@ -1,0 +1,24 @@
+# Template workflow for running jobs that use Python on Ubuntu.
+
+name: py-template
+
+on:
+  workflow_dispatch: {}
+  # (here, add useful triggers...)
+
+jobs:
+  job-name:
+    name: Template Ubuntu+Python workflow
+    runs-on: ubuntu-latest
+    steps:
+
+    # This is a special step that sets up the repository.
+    - uses: actions/checkout@v3
+
+    # This is a pre-written step that sets up Python on the runner.
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    # Install Python packages with pip:
+    #- run: pip install numpy
