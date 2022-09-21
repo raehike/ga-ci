@@ -2,6 +2,9 @@ name: Binary search - Formatting (black)
 
 on:
   workflow_dispatch: {}
+  push:
+    branches:
+    - main
 
 jobs:
   py-black:
